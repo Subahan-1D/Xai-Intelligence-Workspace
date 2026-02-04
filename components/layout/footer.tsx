@@ -54,9 +54,9 @@ export default function Footer() {
             © {currentYear} Xai. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition">Twitter</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition">GitHub</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition">LinkedIn</a>
+            <a href="https://www.facebook.com/subahan.islam.758" className="text-muted-foreground hover:text-foreground transition">Facebook</a>
+            <a href="https://github.com/Subahan-1D" className="text-muted-foreground hover:text-foreground transition">GitHub</a>
+            <a href="https://www.linkedin.com/in/subahanali523" className="text-muted-foreground hover:text-foreground transition">LinkedIn</a>
           </div>
         </div>
       </div>
