@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import InteractiveDataCluster from '@/components/3d/interactive-cluster';
 import { Suspense } from 'react';
+import { Boxes, MousePointerClick, Scroll } from 'lucide-react';
 
 export default function WowSection() {
   const containerRef = useRef(null);
@@ -50,7 +51,7 @@ export default function WowSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Experience Intelligent <span className="text-primary">Transformation</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -81,17 +82,17 @@ export default function WowSection() {
             {
               title: 'Scroll Reactive',
               description: 'The visualization responds to your scroll position, creating a sense of depth and engagement.',
-              icon: '📊',
+              icon:<Scroll/>
             },
             {
               title: 'Mouse Interactive',
               description: 'Move your cursor to influence the data cluster, experiencing real-time interaction with intelligent systems.',
-              icon: '🖱️',
+              icon: <MousePointerClick />
             },
             {
               title: 'Geometry Morphing',
               description: 'Watch complex geometries transform smoothly, representing the evolution from raw data to insights.',
-              icon: '✨',
+              icon: <Boxes />,
             },
           ].map((feature, index) => (
             <motion.div

@@ -65,7 +65,7 @@ export default function InsightFlowSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Three-Step <span className="text-primary">Intelligence Pipeline</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -74,10 +74,9 @@ export default function InsightFlowSection() {
         </motion.div>
 
         {/* Flow Visualization */}
-        <div className="grid md:grid-cols-3 gap-8 relative">
+        <div className="grid md:grid-cols-3 gap-6 relative">
           {/* Connecting line background */}
           <div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0" />
-
           {stages.map((stage, index) => {
             const Icon = stage.icon;
             return (

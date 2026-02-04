@@ -51,7 +51,7 @@ export default function Footer() {
 
         <div className="border-t border-border/40 pt-8 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Xai. All rights reserved.
+            © {currentYear} Xai. All rights reserved subahan.
           </p>
           <div className="flex items-center gap-4">
             <a href="https://www.facebook.com/subahan.islam.758" className="text-muted-foreground hover:text-foreground transition">Facebook</a>
@@ -59,7 +59,8 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/subahanali523" className="text-muted-foreground hover:text-foreground transition">LinkedIn</a>
           </div>
         </div>
-      </div>
+        
+      </div>""
     </motion.footer>
   );
 }
