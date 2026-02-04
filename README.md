@@ -40,163 +40,33 @@ Xai Intelligence Workspace is a premium product prototype built with Next.js, Re
 ```
 /
 ├── app/
-│   ├── layout.tsx          # Root layout with metadata
-│   ├── page.tsx            # Main page composition
-│   └── globals.css         # Design tokens and global styles
+│   ├── layout.tsx         
+│   ├── page.tsx            
+│   └── globals.css        
 ├── components/
 │   ├── layout/
-│   │   ├── header.tsx      # Navigation header
-│   │   └── footer.tsx      # Footer with links
+│   │   ├── header.tsx     
+│   │   └── footer.tsx     
 │   ├── sections/
-│   │   ├── hero-section.tsx           # Hero with 3D data transformation
-│   │   ├── insight-flow-section.tsx   # Three-stage process visualization
-│   │   ├── dashboard-section.tsx      # Product UI preview with charts
-│   │   └── wow-section.tsx            # Signature interactive moment
+│   │   ├── hero-section.tsx           
+│   │   ├── insight-flow-section.tsx   
+│   │   ├── dashboard-section.tsx      
+│   │   └── wow-section.tsx            
 │   ├── 3d/
-│   │   ├── data-transformation.tsx    # Hero 3D visualization
-│   │   └── interactive-cluster.tsx    # WOW section interactive visualization
-│   └── ui/                 # Shadcn UI components (auto-generated)
+│   │   ├── data-transformation.tsx    
+│   │   └── interactive-cluster.tsx    
+│   └── ui/                
 ├── lib/
-│   └── utils.ts            # Utility functions (cn for class merging)
+│   └── utils.ts           
 ├── hooks/
-│   └── use-mobile.tsx      # Mobile detection hook
-└── package.json            # Dependencies
+│   └── use-mobile.tsx      
+└── package.json            
 
 ```
-
-## Key Features & Interactions
-
-### 1. Hero Section – Data Transformation
-**File**: `/components/sections/hero-section.tsx`
-
-- Minimal, impactful headline explaining the product value proposition
-- Scroll-responsive 3D visualization showing particles transforming into structured intelligence
-- Particle system with 150+ dynamic elements that react to scroll position
-- Central intelligence core (octahedron) representing AI processing
-- Rotating geometry rings showing the transformation pipeline
-- Smooth entrance animations with staggered timing
-
-**Animation Details**:
-- Hero text: `initial={{ opacity: 0, y: 20 }}` → animated entrance
-- 3D scene rotates based on `scrollY` to create depth perception
-- Scroll indicator with infinite bounce animation
-
-### 2. Interactive Insight Flow – Three Stages
-**File**: `/components/sections/insight-flow-section.tsx`
-
-Communicates three sequential steps:
-1. **Ingest Data** - Raw data ingestion with multi-source support
-2. **Analyze with AI** - Machine learning and pattern recognition
-3. **Generate Insights** - Actionable recommendations and automation
-
-**Interaction Design**:
-- Cards animate in with staggered delays based on viewport
-- Hover state elevates cards and adds glow effect
-- Connected line visualizer shows flow between stages
-- Icon containers have interactive scale and rotation transforms
-- Details expand with sequential animations using list animations
-
-### 3. Intelligence Dashboard Preview
-**File**: `/components/sections/dashboard-section.tsx`
-
-Product UI showcase featuring:
-
-**Metrics Section**:
-- Four stat cards with trend indicators (+12.5%, +23.1%, etc.)
-- Color-coded metrics with gradient backgrounds
-- Hover animations that elevate cards
-
 **Data Visualization**:
 - **Area Chart**: Performance trend over 6 months with gradient fill
 - **Bar Chart**: Revenue distribution visualization
 - **Dual Line Chart**: User growth vs. revenue correlation
-
-**Technical Implementation**:
-- Recharts for responsive chart rendering
-- Custom tooltip styling matching dark theme
-- OKLCH color tokens for consistent theming
-- Hover states on chart containers
-
-### 4. Signature WOW Moment – Interactive Data Cluster
-**File**: `/components/sections/wow-section.tsx` & `/components/3d/interactive-cluster.tsx`
-
-The centerpiece interaction demonstrating motion mastery:
-
-**Key Features**:
-- **Mouse Tracking**: Data particles repel from cursor position in real-time
-- **Scroll Reactivity**: Entire scene scales and fades based on scroll progress
-- **Geometry Morphing**: Particles smoothly interpolate from scattered sphere to tight cluster
-- **Multi-Layer 3D**: 300+ particles + central icosahedron + two orbiting torus rings
-- **Dynamic Colors**: Particles use HSL-based coloring with vertex colors
-
-**Technical Highlights**:
-```typescript
-// Particle repulsion algorithm
-if (distance < 2) {
-  const strength = (1 - distance / 2) * 0.15;
-  posArray[i3] += (dx / distance) * strength;
-  posArray[i3 + 1] += (dy / distance) * strength;
-}
-
-// Smooth position interpolation (clustering)
-posArray[i3] += (targetPositions[i3] - posArray[i3]) * speed;
-```
-
-## Design System
-
-### Color Palette
-All colors defined as CSS custom properties in `/app/globals.css`:
-
-**Primary Theme** (Dark mode optimized):
-- **Background**: `oklch(0.09 0 0)` - Deep dark
-- **Foreground**: `oklch(0.95 0 0)` - Near white
-- **Card**: `oklch(0.12 0 0)` - Slightly lighter dark
-- **Primary**: `oklch(0.55 0.2 260)` - Purple (main brand color)
-- **Accent**: `oklch(0.60 0.18 270)` - Violet (complementary)
-- **Border**: `oklch(0.2 0 0)` - Subtle dividers
-- **Muted**: `oklch(0.25 0 0)` - Reduced prominence text
-
-### Typography
-- **Font Family**: Geist (sans) for all text
-- **Headings**: Font weights 600-700 (semibold to bold)
-- **Body**: Font weight 400 with leading-relaxed (line-height 1.625)
-- **Display**: text-5xl to text-7xl for hero, text-4xl to text-5xl for section heads
-- **Small Text**: text-xs (12px) for supporting information
-
-### Spacing & Radius
-- **Base Unit**: 4px (1 unit = px-1, py-1)
-- **Card Padding**: px-6 py-4 (24px, 16px)
-- **Section Gaps**: gap-8 or gap-6
-- **Border Radius**: `--radius: 0.625rem` (10px base)
-
-## Animation Architecture
-
-### Framer Motion Patterns
-
-**Entrance Animations**:
-```typescript
-initial={{ opacity: 0, y: 20 }}
-animate={{ opacity: 1, y: 0 }}
-transition={{ duration: 0.8, delay: 0.2 }}
-```
-
-**Scroll-Triggered Animations**:
-```typescript
-whileInView={{ opacity: 1, y: 0 }}
-viewport={{ once: true }}
-```
-
-**Hover Interactions**:
-```typescript
-whileHover={{ y: -5, scale: 1.02 }}
-whileTap={{ scale: 0.95 }}
-```
-
-### GSAP Scroll Triggers
-Used implicitly through Framer Motion's scroll detection for:
-- Parallax effects on background gradients
-- Staggered card animations
-- Scroll-responsive scale and opacity transforms
 
 ### Three.js Custom Animations
 - **useFrame Hook**: Runs on every animation frame for smooth particle updates
@@ -249,7 +119,7 @@ Used implicitly through Framer Motion's scroll detection for:
 
 1. **Clone the repository**:
 ```bash
-git clone <repository-url>
+git clone <https://github.com/Subahan-1D/Xai-Intelligence-Workspace.git>
 cd xai-intelligence-workspace
 ```
 
@@ -278,34 +148,6 @@ npm start
 3. Vercel auto-detects Next.js and deploys automatically
 4. Environment variables (if any) configured in Vercel dashboard
 
-### Alternative Platforms
-The project can be deployed to:
-- Netlify (with `npm run build`)
-- AWS Amplify
-- Self-hosted servers with Node.js
-
-## Technical Decision Rationale
-
-### Why React Three Fiber over vanilla Three.js?
-- Hooks-based API integrates seamlessly with React lifecycle
-- Automatic cleanup and disposal of geometries/materials
-- useFrame hook for animation loop management
-- Easier to manage state across 3D scenes
-
-### Why GSAP isn't heavily used?
-- Framer Motion handles 90% of use cases more declaratively
-- GSAP would add bundle size for marginal benefit
-- Scroll detection already available through Framer Motion
-
-### Why custom particle physics over pre-built library?
-- Full control over particle behavior and visual style
-- Lightweight and performant for this specific use case
-- Demonstrates deep understanding of animation principles
-
-### Why OKLCH color space?
-- Modern, perceptually uniform color space
-- Superior to HSL/RGB for accessible, consistent theming
-- Future-proof CSS standard
 
 ## Browser Compatibility
 
@@ -331,18 +173,6 @@ The project can be deployed to:
 - Restrained color palette (dark theme with 2 accent colors)
 - Interactive elements have clear affordances
 
-### Motion & Interaction (5/5)
-- Purposeful animations that enhance, not distract
-- Smooth 60fps performance with GPU acceleration
-- Scroll-reactive elements create depth perception
-- Mouse interaction shows real-time responsiveness
-
-### Engineering Quality (5/5)
-- Clean component architecture with separation of concerns
-- Reusable animation patterns and utility functions
-- Type-safe TypeScript throughout
-- Performance optimizations for production
-
 ### Product Thinking (5/5)
 - UI clearly communicates "data → insights" narrative
 - Each section answers a question about the product
@@ -353,8 +183,7 @@ The project can be deployed to:
 
 For questions or feedback:
 - Create an issue in the repository
-- Email: team@xai-example.com
-- Twitter: @xai_workspace
+- Email: subahanislam523@gmail.com
 
 ## License
 
